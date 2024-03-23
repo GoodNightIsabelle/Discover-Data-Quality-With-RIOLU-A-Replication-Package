@@ -1,4 +1,4 @@
-from template_generator_auto import TemplateGenerator
+from template_generator import TemplateGenerator
 from template_selector import TemplateSelector
 from utils import Utils
 import pandas as pd
@@ -58,7 +58,7 @@ for column in gt_columns:
     coverage_threshold = 1-error_rate/len(indices)
     generator = TemplateGenerator(filtered_list, coverage_threshold)
     generator.template_coverage_statictics()
-    selector = TemplateSelector(generator.template_coverage)
+    selector = TemplateSelector(generator.template_coverage, len(filtered_list))
     selector.select_templates()
     template_pool = selector.template_pool
     print(column, template_pool)

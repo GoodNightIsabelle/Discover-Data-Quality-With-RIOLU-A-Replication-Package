@@ -6,8 +6,9 @@ import pandas as pd
 from sklearn.cluster import KMeans
 
 class TemplateSelector:
-    def __init__(self, template_coverage):
+    def __init__(self, template_coverage, column_size):
         # Get the coverage
+        self.column_size = column_size
         self.template_coverage = template_coverage
 
         # Store a sorted gain dictionary
@@ -23,7 +24,7 @@ class TemplateSelector:
         coverages = list(self.sorted_coverage.values())
         templates = list(self.sorted_coverage.keys())
         if len(coverages) > 1:
-            coverages.append(1e-5)
+            coverages.append(1/self.column_size)
             # Reshape the coverages into a 2D array
             X = np.array(coverages).reshape(-1, 1)
             kmeans = KMeans(n_clusters=2, random_state=0)
