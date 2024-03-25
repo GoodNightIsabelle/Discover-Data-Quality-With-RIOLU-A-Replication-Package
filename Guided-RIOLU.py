@@ -83,4 +83,4 @@ for column in gt_columns:
             predictions.append(1)
     results[column] = predictions
 # Write the results
-pd.DataFrame(results).to_csv('results/prediction_history_learning/history_learning_prediction_%s.csv'%path.split('/')[-2])
+pd.DataFrame(results).to_csv('results/guided_riolu/guided_riolu_%s.csv'%path.split('/')[-2])
