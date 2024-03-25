@@ -1,4 +1,4 @@
-from template_summarizer import TemplateGenerator
+from pattern_summarizer import PatternGenerator
 from utils import Utils
 import numpy as np
 import os
@@ -58,25 +58,25 @@ sorted_combined_data = sorted(combined_data, key=lambda x: len(x[0]))
 datasets, all_files = zip(*sorted_combined_data)
 sizes = [np.log10(len(dataset)) for dataset in datasets]
 # Create the splits
-template_pools = []
+pattern_pools = []
 test_current = []
 for i, dataset in enumerate(datasets):
     # Ignore the datasets that are too small
     tp, fp, fn = 0, 0, 0
     # Control coverage
-    generator = TemplateGenerator(dataset, 1)
+    generator = PatternGenerator(dataset, 1)
     test_size = generator.test_size
     test_sizes += test_size
-    generator.template_coverage_statictics()
-    template_pool = generator.templates
-    print(all_files[i], template_pool)
+    generator.pattern_coverage_statictics()
+    pattern_pool = generator.patterns
+    print(all_files[i], pattern_pool)
     
     # Test on current dataset
     for data in generator.test:
         matched = False
-        for template in template_pool:
+        for pattern in pattern_pool:
             # Regular expression with positional constraints
-            if Utils.template_matching(template, data):
+            if Utils.pattern_matching(pattern, data):
                 tp += 1
                 matched = True
                 break
@@ -91,9 +91,9 @@ for i, dataset in enumerate(datasets):
     # Randomly select test set
     test_set = random.choices(test_set, k=test_size)
     for data in test_set:
-        for template in template_pool:
+        for pattern in pattern_pool:
             # Regular expression with positional constraints
-            if Utils.template_matching(template, data):
+            if Utils.pattern_matching(pattern, data):
                 fp += 1
                 break
     avg_fp += fp
