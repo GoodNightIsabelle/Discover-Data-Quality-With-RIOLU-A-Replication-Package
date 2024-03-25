@@ -1,0 +1,82 @@
+{
+  "Source": "http://journals.plos.org/plosone/article/file?type=supplementary&id=info:doi/10.1371/journal.pone.0160729.s006",
+  "PottersWheel": [
+    "ISpellWord"
+  ],
+  "Results": [
+    {
+      "Description": [
+        "'yes'",
+        "'no'"
+      ]
+    },
+    {
+      "Disjuncts": 1,
+      "Description": [
+        "[Lower]+"
+      ]
+    }
+  ],
+  "Data": [
+    "no",
+    "no",
+    "yes",
+    "no",
+    "yes",
+    "yes",
+    "yes",
+    "no",
+    "no",
+    "no",
+    "yes",
+    "no",
+    "yes",
+    "yes",
+    "no",
+    "yes",
+    "no",
+    "yes",
+    "yes",
+    "yes",
+    "yes",
+    "yes",
+    "no",
+    "no",
+    "yes",
+    "yes",
+    "yes",
+    "yes",
+    "no",
+    "no",
+    "no",
+    "yes",
+    "yes",
+    "yes",
+    "yes",
+    "yes",
+    "yes",
+    "no",
+    "no",
+    "no",
+    "yes",
+    "no",
+    "no",
+    "no",
+    "yes",
+    "yes",
+    "yes",
+    "yes",
+    "no",
+    "no",
+    "yes",
+    "yes",
+    "yes",
+    "yes",
+    "no",
+    "no",
+    "no",
+    "yes",
+    "yes",
+    "yes"
+  ]
+}

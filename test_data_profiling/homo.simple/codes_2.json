@@ -1,0 +1,80 @@
+{
+  "Source": "http://journals.plos.org/plosone/article/file?type=supplementary&id=info:doi/10.1371/journal.pone.0160729.s006",
+  "PottersWheel": null,
+  "Results": [
+    {
+      "Description": [
+        "'MaCh' · [Digit]{2}",
+        "TitleWord · TitleWord · '0' · [Digit]{1}"
+      ]
+    },
+    {
+      "Disjuncts": 1,
+      "Description": [
+        "TitleWord · TitleWord · [Digit]{2}"
+      ]
+    }
+  ],
+  "Data": [
+    "KaBh06",
+    "KaBh03",
+    "KaBh02",
+    "KaBh05",
+    "KaBh04",
+    "KaBh01",
+    "KaGo08",
+    "KaGo07",
+    "KaGo06",
+    "KaGo04",
+    "KaGo05",
+    "KaGo03",
+    "KaGo02",
+    "KaGo01",
+    "NiSa08",
+    "NiSa06",
+    "NiSa04",
+    "NiSa03",
+    "NiSa07",
+    "NiSa05",
+    "NiSa02",
+    "NiSa01",
+    "NiPi06",
+    "NiPi04",
+    "NiPi03",
+    "NiPi05",
+    "NiPi02",
+    "NiPi01",
+    "PiDo05",
+    "PiDo03",
+    "PiDo01",
+    "PiDo06",
+    "PiDo04",
+    "PiDo02",
+    "MaMa01",
+    "MaBh02",
+    "MaBh01",
+    "MaCh11",
+    "MaCh10",
+    "MaCh09",
+    "MaCh08",
+    "MaCh06",
+    "MaCh05",
+    "MaCh04",
+    "MaCh07",
+    "MaCh03",
+    "MaCh02",
+    "MaCh01",
+    "BaCh06",
+    "BaCh05",
+    "BaCh04",
+    "BaCh03",
+    "BaCh02",
+    "BaCh01",
+    "BaBa06",
+    "BaBa05",
+    "BaBa04",
+    "BaBa03",
+    "BaBa02",
+    "BaBa01"
+  ]
+}
