@@ -1,6 +1,9 @@
 # Discover-Data-Quality-With-RIOLU-A-Replication-Package
 
 ### The repository contains the replication package for the paper "Automated, Unsupervised, and Non-parameterized Inference of Data Patterns and Anomaly Detection".
+### RIOLU: Regex Inferencer nOn-parameterized Learning with Uncleaned data
+<img width="250" alt="image" src="https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/f91de69f-25a8-4ace-8e0b-eb225434272d">
+
 
 ## Introduction
 The workflows of our tool (Auto-RIOLU and Guided-RIOLU) are shown in the following graph:
@@ -57,3 +60,25 @@ Run code ```Auto-RIOLU.py``` to get the result of the unsupervised version of RI
 ![image](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/a0da6dca-33aa-4865-bac5-ad3ac1059210)
 
 Run code ```Guided-RIOLU.py```to get the result of the supervised version of RIOLU; the predicted CSV file will be stored. We use the cleaned version of each dataset as a support to estimate the coverage rate (rcov). 
+
+## Plug and Play: RIOLU for others
+### Pattern Generator
+Our pattern generator (```pattern_generator.py```) can generate a pattern pool with a water flow structure. Run the following code to create patterns and get the actual coverage of each pattern (i.e., the frequency of matching of each pattern on the whole dataset). 
+
+```python
+generator = PatternGenerator(sampled_data, coverage_rate)
+generator.pattern_coverage_statictics()
+pattern_statistics = generator.pattern_coverage
+```
+
+Workflow example with DateTime column:
+![image](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/64d29a40-222a-4ef3-b837-27efe0952ba6)
+
+### Pattern Selector
+Our pattern selector (```pattern_selector.py```) can select patterns dynamically using the 2-class K-Means clustering technique. To select patterns, you should input a dictionary containing patterns and their frequencies (e.g., {"[0-9]+":0.80980980980981, "[0-9]+[a-z][0-9]+$": 0.135, ...}). The output will be a list of selected patterns. 
+
+```python
+selector = PatternSelector(pattern_coverage)
+selector.select_patterns()
+pattern_pool = selector.pattern_pool
+```
