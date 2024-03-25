@@ -1,5 +1,5 @@
-from template_generator import TemplateGenerator
-from template_selector import TemplateSelector
+from pattern_generator import PatternGenerator
+from pattern_selector import PatternSelector
 from utils import Utils
 import pandas as pd
 import numpy as np
@@ -12,20 +12,20 @@ def get_dataframe(path, header=True):
 
 def coverage_estimation(source_column, coverage_threshold):
     # Fine tune the coverage threshold
-    generator = TemplateGenerator(source_column, coverage_threshold)
-    generator.template_coverage_statictics()
-    selector = TemplateSelector(generator.template_coverage, len(source_column))
+    generator = PatternGenerator(source_column, coverage_threshold)
+    generator.pattern_coverage_statictics()
+    selector = PatternSelector(generator.pattern_coverage, len(source_column))
     # Whether to accept a new cluster? depends on the frequency
-    selector.select_templates()
-    template_pool = selector.template_pool
-    return coverage(template_pool, source_column)
+    selector.select_patterns()
+    pattern_pool = selector.pattern_pool
+    return coverage(pattern_pool, source_column)
     
-def coverage(template_pool, data):
+def coverage(pattern_pool, data):
     matched = 0
     for i, record in enumerate(data):
-        for template in template_pool:
+        for pattern in pattern_pool:
             # Regular expression with positional constraints
-            if Utils.template_matching(template, record):
+            if Utils.pattern_matching(pattern, record):
                 matched += 1
                 break
     return matched/len(data)
@@ -58,13 +58,13 @@ for column in gt_columns:
     coverage_threshold = average_threshold/rounds
     
     # Coverage update, re-generate
-    generator = TemplateGenerator(filtered_list, coverage_threshold)
-    generator.template_coverage_statictics()
-    selector = TemplateSelector(generator.template_coverage, len(filtered_list))
+    generator = PatternGenerator(filtered_list, coverage_threshold)
+    generator.pattern_coverage_statictics()
+    selector = PatternSelector(generator.pattern_coverage, len(filtered_list))
     # Whether to accept a new cluster? depends on the frequency
-    selector.select_templates()
-    template_pool = selector.template_pool
-    print(column, template_pool)
+    selector.select_patterns()
+    pattern_pool = selector.pattern_pool
+    print(column, pattern_pool)
     # Report the potential pattern problems
     predictions = []
     for i, record in enumerate(source_column):
@@ -75,9 +75,9 @@ for column in gt_columns:
                 continue
         record = str(record)
         matched = False 
-        for template in template_pool:
+        for pattern in pattern_pool:
             # Regular expression with positional constraints
-            if Utils.template_matching(template, record):
+            if Utils.pattern_matching(pattern, record):
                 matched = True
                 predictions.append(0)
                 break
