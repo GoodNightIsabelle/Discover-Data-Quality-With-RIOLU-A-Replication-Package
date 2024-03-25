@@ -2,7 +2,6 @@ from utils import Utils
 import re
 import string
 import numpy as np
-import numpy as np
 from sklearn.cluster import KMeans
 
 class TemplateGenerator:
