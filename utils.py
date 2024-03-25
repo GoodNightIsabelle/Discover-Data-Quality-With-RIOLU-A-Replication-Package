@@ -141,8 +141,8 @@ class Utils:
             return result_dict
     
     # Template matching for single record
-    def template_matching(template, string):
-        pattern = re.compile(template)
+    def pattern_matching(pattern, string):
+        pattern = re.compile(pattern)
         return re.fullmatch(pattern, string)
 
     # Template matching for a list
@@ -152,4 +152,3 @@ class Utils:
         # Use list comprehension to find exact matches
         exact_matches = [element for element in string_list if re.fullmatch(pattern, element)]
         return exact_matches
-    
