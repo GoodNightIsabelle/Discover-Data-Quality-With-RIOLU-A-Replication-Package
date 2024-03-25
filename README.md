@@ -46,12 +46,14 @@ An example of the printed graph:
 ![profiling_quality](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/06dd9b38-da43-42a2-b261-980411513e2e)
 
 ### Anomaly Detection
+The two anomaly detection tools read the dataset in the ```test_anomaly_detection``` folder. Change the variable of ```dataset``` in the code to specify the desired dataset (valid data in our folder: hosp_1k, hosp_10k, hosp_100k, movies), the code will automatically read the ground truth to fetch the columns to be tested (not all the columns contain pattern anomalies). 
+
 #### Unsupervised Version (Auto-RIOLU)
 ![image](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/328c417a-e2f6-4fd0-8667-daa9beccd670)
 
-Run code ```Auto-RIOLU.py``` to get the result of the unsupervised version of RIOLU. 
+Run code ```Auto-RIOLU.py``` to get the result of the unsupervised version of RIOLU; the predicted CSV file will be stored. 
 
 #### Supervised Version (Guided-RIOLU)
 ![image](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/a0da6dca-33aa-4865-bac5-ad3ac1059210)
 
-Run code ```Guided-RIOLU.py```to get the result of the supervised version of RIOLU. We use the cleaned version of each dataset as a support to estimate the coverage rate (rcov). 
+Run code ```Guided-RIOLU.py```to get the result of the supervised version of RIOLU; the predicted CSV file will be stored. We use the cleaned version of each dataset as a support to estimate the coverage rate (rcov). 
