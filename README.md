@@ -52,7 +52,7 @@ An example of the printed graph:
 The two anomaly detection tools read the dataset in the ```test_anomaly_detection``` folder. Change the variable of ```dataset``` in the code to specify the desired dataset (valid data in our folder: hosp_1k, hosp_10k, hosp_100k, movies), the code will automatically read the ground truth to fetch the columns to be tested (not all the columns contain pattern anomalies). 
 
 #### Unsupervised Version (Auto-RIOLU)
-![image](images/unsupervised_coverage_rate_estimation.pdf)
+![image](./images/unsupervised_coverage_rate_estimation.pdf)
 
 Run code ```Auto-RIOLU.py``` to get the result of the unsupervised version of RIOLU; the predicted CSV file will be stored. 
 
