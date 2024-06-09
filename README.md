@@ -2,7 +2,7 @@
 
 ### The repository contains the replication package for the paper "Automated, Unsupervised, and Non-parameterized Inference of Data Patterns and Anomaly Detection".
 ### RIOLU: Regex Inferencer nOn-parameterized Learning with Uncleaned data
-<img width="250" alt="image" src="https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/f91de69f-25a8-4ace-8e0b-eb225434272d">
+![image](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/e7d854d7-b559-435a-9d81-8a1ac8f4d730](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/tree/main/images/316591300-f91de69f-25a8-4ace-8e0b-eb225434272d.png)
 
 
 ## Introduction
