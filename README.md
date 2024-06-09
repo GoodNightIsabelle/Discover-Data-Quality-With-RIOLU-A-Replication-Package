@@ -2,13 +2,13 @@
 
 ### The repository contains the replication package for the paper "Automated, Unsupervised, and Non-parameterized Inference of Data Patterns and Anomaly Detection".
 ### RIOLU: Regex Inferencer nOn-parameterized Learning with Uncleaned data
-![plot](./images/316591300-f91de69f-25a8-4ace-8e0b-eb225434272d.png)
+![riolu](./images/316591300-f91de69f-25a8-4ace-8e0b-eb225434272d.png)
 
 
 ## Introduction
 The workflows of our tool (Auto-RIOLU and Guided-RIOLU) are shown in the following graph:
 
-![image](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/e7d854d7-b559-435a-9d81-8a1ac8f4d730)
+![image](./images/methodology_overview.pdf)
 
 **Column Sampling:** Sample a subset of data from the column to generate the patterns. 
 
@@ -46,18 +46,18 @@ The procedure for replicating our experiments is as follows:
 Run code ```test_profiling.py``` to get the data profiling result provided by RIOLU's pattern generation module. The patterns for each file, overall precisions, and overall recalls will be printed in the output, and a graphic result will be automatically stored in the folder. 
 
 An example of the printed graph: 
-![profiling_quality](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/06dd9b38-da43-42a2-b261-980411513e2e)
+![profiling_quality](./images/profiling_quality.png)
 
 ### Anomaly Detection
 The two anomaly detection tools read the dataset in the ```test_anomaly_detection``` folder. Change the variable of ```dataset``` in the code to specify the desired dataset (valid data in our folder: hosp_1k, hosp_10k, hosp_100k, movies), the code will automatically read the ground truth to fetch the columns to be tested (not all the columns contain pattern anomalies). 
 
 #### Unsupervised Version (Auto-RIOLU)
-![image](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/328c417a-e2f6-4fd0-8667-daa9beccd670)
+![image](images/unsupervised_coverage_rate_estimation.pdf)
 
 Run code ```Auto-RIOLU.py``` to get the result of the unsupervised version of RIOLU; the predicted CSV file will be stored. 
 
 #### Supervised Version (Guided-RIOLU)
-![image](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/a0da6dca-33aa-4865-bac5-ad3ac1059210)
+![image](./images/supervised_coverage_rate_estimation.pdf)
 
 Run code ```Guided-RIOLU.py```to get the result of the supervised version of RIOLU; the predicted CSV file will be stored. We use the cleaned version of each dataset as a support to estimate the coverage rate (rcov). 
 
@@ -72,7 +72,7 @@ pattern_statistics = generator.pattern_coverage
 ```
 
 Workflow example with DateTime column:
-![image](https://github.com/GoodNightIsabelle/Discover-Data-Quality-With-RIOLU-A-Replication-Package/assets/64899589/64d29a40-222a-4ef3-b837-27efe0952ba6)
+![image](./images/generation_example.pdf)
 
 ### Pattern Selector
 Our pattern selector (```pattern_selector.py```) can select patterns dynamically using the 2-class K-Means clustering technique. To select patterns, you should input a dictionary containing patterns and their frequencies (e.g., {"[0-9]+":0.80980980980981, "[0-9]+[a-z][0-9]+$": 0.135, ...}). The output will be a list of selected patterns. 
