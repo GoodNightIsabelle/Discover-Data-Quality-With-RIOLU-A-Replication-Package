@@ -87,11 +87,16 @@ pattern_pool = selector.pattern_pool
 To validate the effectiveness of RIOLU, we also prompted ChatGPT to generate regexes and flag anomalies as a comparison. The prompt template is:
 
 ```
-Hi ChatGPT, given the following data (in a column), please accomplish the following two tasks: 1. Provide me with regular expressions that represent the column. 2. Provide me with anomalous cases in the column.
+Hi ChatGPT, given the following data (in a column), please accomplish the following two tasks:
+1. Provide me with regular expressions that represent the column.
+2. Provide me with anomalous cases in the column.
 *** Your Column Goes Here ***
 ```
 
 Here are three example conversations generated using this prompt. 
+
 State: https://chatgpt.com/share/abaae9cc-f29a-4410-bd7a-5184581ecb48
+
 Zip code: https://chatgpt.com/share/9ccca100-4524-432a-b75c-ce7ad38e2824
+
 Phone number: https://chatgpt.com/share/67c63504-ae41-4248-b7bd-edbda63c7d73
