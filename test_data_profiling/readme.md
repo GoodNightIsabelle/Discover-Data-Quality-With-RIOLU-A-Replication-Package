@@ -1,7 +1,7 @@
 # Data Profiling Dataset
 
 ## Source
-The data profiling evaluation dataset is originally from FlashProfile(https://github.com/SaswatPadhi/FlashProfileDemo/tree/master/tests). Our dataset captures the ```Domain``` subset in the FlashProfile paper and includes 63 JSON files in different domains. The data split is validated by the author of FlashProfile to ensure correctness. 
+The data profiling evaluation dataset is originally from FlashProfile(https://github.com/SaswatPadhi/FlashProfileDemo/tree/master/tests). Our dataset captures the ```Domain``` subset in the FlashProfile paper and includes 63 JSON files in different domains. The data split is validated by the author of FlashProfile to ensure correctness. Big thanks for your help! 
 
 ## Description
 The data were collected from various accessible real-life websites, and the sources are documented in the JSON files. We manually examined these sources and categorized the data according to their domains. The following table provides an overview of the contents of this dataset:
