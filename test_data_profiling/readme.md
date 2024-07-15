@@ -33,3 +33,7 @@ The data were collected from various accessible real-life websites, and the sour
 |                 | IPv4          | 1                   | The fourth version of the Internet Protocol.                       | ipv4.json                                                                                                                                         |
 |                 | salaries      | 1                   | Salaries of employees.                                             | salaries.json                                                                                                                                     |
 |                 | others        | 2                   | Data from other domains that do not provide contexts.            | decimals.json, percents.json                                                                                                                      |
+
+
+## ChatGPT Predictions
+We asked ChatGPT to infer the regexes for data profiling and stored the responses in ```GPT_responses.csv```. The regexes are manually extracted from the response. Among the 63 generated regexes, the regexes for ```returns.json``` and ```salaries.json``` encountered errors during regex compilation. Hence, we manually modified the regexes based on the original semantics to avoid blocking the evaluation pipeline. The error details and original regexes for these two domains are also documented in the CSV file. 
