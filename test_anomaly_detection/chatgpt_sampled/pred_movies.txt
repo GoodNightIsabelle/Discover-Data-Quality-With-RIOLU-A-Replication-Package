@@ -1,0 +1,8 @@
+id
+tt\d{7}|[a-zA-Z_]+
+year
+\b\d{4}\b|\b\d{4}\b\s\d{4}\b|\b\d{4}\b(?:\s|\s?/\s?)\b\d{4}\b
+duration
+(\d+)\s*hr\.\s*(\d+)\s*min|(\d+)\s*min
+rating_value
+\d+(\.\d+)?|\d+(\.\d+)?\/\d+(\.\d+)?

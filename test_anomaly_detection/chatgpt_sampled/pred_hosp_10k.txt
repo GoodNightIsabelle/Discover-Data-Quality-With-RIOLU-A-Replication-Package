@@ -1,0 +1,6 @@
+state
+[A-Z]{2}|[A-Z][a-z]?[A-Z]
+zip
+\d{5}|\d{6}
+phone
+\d{10}|\d+[a-zA-Z]*|\d+\*{0,3}

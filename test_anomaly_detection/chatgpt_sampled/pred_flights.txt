@@ -1,0 +1,12 @@
+ScheduledDeparture time
+\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4}|\d{1,2}:\d{2} [AP]M|\d{1,2}:\d{2}|[A-Z][a-z]{2}_ [A-Z][a-z]{2} \d{2} \d{1,2}:\d{2} [AP]M
+ActualDeparture time
+(\d{1,2}/\d{1,2}/\d{4})|(\d{4}-\d{2}-\d{2})|(\d{1,2}:\d{2}\s*(?:AM|PM))|(\d{1,2}:\d{2}\s*(?:AM|PM) \w{3} \d{2})|(\d{1,2}:\d{2}\s*(?:AM|PM) \d{2}-\w{3}-\d{4})|(\d{4}-\d{2}-\d{2}\s*\d{2}:\d{2})
+DepartureGate varchar(55)
+[A-Z0-9]+|\d+|[\w\s\-/]+|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-\d{2}|(?:Not provided by airline|-)
+ScheduledArrival time
+(\d{4}-\d{2}-\d{2})|(\d{1,2}/\d{1,2}/\d{4})|(Dec|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}(\s+|\-\s+|,\s+)\d{4}|(Dec|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}|(\d{1,2}:\d{2}\s*[AP]M)|(\d{1,2}:\d{2})|(\d{4}-\d{2}-\d{2}\s+\d{1,2}:\d{2})
+ActualArrival time
+(\d{1,2}/\d{1,2}/\d{4})|(\d{4}-\d{2}-\d{2})|(Dec|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{1,2}|(Sun|Mon|Tue|Wed|Thu|Fri|Sat)_\s(Dec|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{1,2}|\d{1,2}:\d{2}\s(?:AM|PM)|\d{1,2}:\d{2}(?:A|P)M_\s(?:Dec|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{1,2}|(\d{4}-\d{2}-\d{2}\s\d{2}:\d{2})
+ArrivalGate varchar(55)
+[A-Z\d\s-]+|\d+|[A-Z\d]+\b|Terminal\s+[A-Z\d\s-]+

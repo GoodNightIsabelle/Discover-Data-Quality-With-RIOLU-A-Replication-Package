@@ -1,0 +1,6 @@
+state
+^(AL|sAL|LA|AiL|AL)$
+zip
+\d{5}
+phone
+\d{10}|\d{10}\d*?|\d{10}[a-zA-Z]*
