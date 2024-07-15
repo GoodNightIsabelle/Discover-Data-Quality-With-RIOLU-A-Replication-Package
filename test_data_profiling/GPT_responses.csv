@@ -1,0 +1,827 @@
+,file,response,regex,issues,original_regex,,
+0,durations.json,"Regular expressions for data profiling that represent the column would be:
+
+- \d{2}-\d{2} 
+- \d{2} to \d{2}
+- \d{1} to \d{1}
+- \d{2} to \d{2} 
+- \d{1} to \d{1}",\d{2}-\d{2}|\d{2} to \d{2}|\d{1} to \d{1}|\d{2} to \d{2}|\d{1} to \d{1},,,,
+1,decimals.json,"Sure, based on the provided data column, here are some regular expressions that can help profile the data:
+
+1. To identify numbers with 2 decimal places:
+   - ```\d+\.\d{2}```
+
+2. To identify numbers with up to 8 digits before the decimal point and 2 digits after:
+   - ```\d{1,8}\.\d{2}```
+
+3. To identify numbers that start with '22':
+   - ```22\.\d{8}```
+
+4. To identify numbers that are between 22.0 and 22.2:
+   - ```22\.(0\.[0-9]{8}|1\.[0-9]{8}|2\.[0-2]{8})``` 
+
+5. To identify numbers that end with '2222':
+   - ```\d+\.\d*2222``` 
+
+These regular expressions can help you profile the data to identify patterns or specific types of numbers in the column.","\d+\.\d{2}|\d{1,8}\.\d{2}|22\.\d{8}|22\.(0\.[0-9]{8}|1\.[0-9]{8}|2\.[0-2]{8})|\d+\.\d*2222",,,,
+2,bool.json,"Certainly! Here are some regular expressions that can help in data profiling for the given column:
+
+1. ""yes"" occurs multiple times: 'yes{2,}'
+2. ""no"" occurs multiple times: 'no{2,}'
+3. Any occurrence of ""yes"": 'yes'
+4. Any occurrence of ""no"": 'no'","yes{2,}|no{2,}|yes|no",,,,
+3,codes_2.json,"Sure, here are some regular expressions for data profiling that represent the given column:
+
+1. Two letters followed by two letters and then two digits:
+    - [A-Za-z]{2}[A-Za-z]{2}\d{2}
+
+2. Two letters followed by two letters and then two digits, one of them being a capital letter:
+    - [A-Z][a-z]{2}[A-Z][a-z]{2}\d{2}",[A-Za-z]{2}[A-Za-z]{2}\d{2}|[A-Z][a-z]{2}[A-Z][a-z]{2}\d{2},,,,
+4,pl_years.json,"Sure! Here are some regular expressions that can be used for data profiling this column:
+
+1. For 4-digit years: 
+   - \b\d{4}\b
+
+2. For year ranges: 
+   - \b\d{4}-\d{4}\b
+
+3. For all years (4-digit and year ranges):
+   - \b\d{4}(-\d{4})?\b
+
+These regular expressions will help you identify and validate the years and year ranges present in the column data.",\b\d{4}\b|\b\d{4}-\d{4}\b|\b\d{4}(-\d{4})?\b,,,,
+5,returns.json,"Sure! Here are some regular expressions that can be used for data profiling on the provided column data:
+
+1. To match percentage values with a decimal point, you can use the regex pattern:
+   -?\d+\.\d+%
+
+2. To match percentage values without a decimal point, you can use the regex pattern:
+   -?\d+%
+
+These regular expressions will help you profile and extract the percentage values from the column data.",\d+\.\d+%|\d+%,re.error: nothing to repeat at position 0,?\\d+\\.\\d+%|?\\d+%,,
+6,salaries.json,"Certainly! Here are some regular expressions that could be used for data profiling on the provided column:
+
+1. To match all dollar amounts:
+   - \$\d{1,3},\d{3}
+
+2. To match dollar amounts above $80,000:
+   - \$8[1-9],[0-9]{3} 
+   - \$[9-100]\d{3}
+
+3. To match a specific dollar amount:
+   - \$161,000
+
+These regular expressions can be used to extract specific patterns or subsets of data within the column for further analysis or processing.","\$\d{1,3}(,\d{3})*(,\d{3})?|\$161,000",re.error:bad character range 9-1 at position 37,,,"\$\d{1,3},\d{3}|\$8[1-9],[0-9]{3}|\$[9-100]\d{3}|\$161,000"
+7,emails.json,"1. Check for email addresses pattern:
+Regular expression: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+
+2. Separate domain names:
+Regular expression: @(.*?)\.
+
+3. Identify domains with AOL:
+Regular expression: @aol.com$
+
+4. Identify domains with Yahoo:
+Regular expression: @yahoo.com$
+
+5. Identify domains with Gmail:
+Regular expression: @gmail.com$
+
+6. Identify domains with Hotmail:
+Regular expression: @hotmail.com$","^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$|@(.*?)\.|@aol.com$|@yahoo.com$|@gmail.com$|@hotmail.com$",,,,
+8,us_canada_zip_codes.json,"Sure, here are some regular expressions that can be used for data profiling the column:
+
+1. Five digit integer: 
+   - \d{5}
+
+2. Five digit integer with optional 4 digit extension:
+   - \d{5}(-\d{4})?
+
+3. Four digit integer:
+   - \d{4}
+
+4. Four digit integer with leading zeros:
+   - 0*(\d{1,4})
+
+These regular expressions can be used to profile and identify different patterns within the column of data provided.","\d{5}|\d{5}(-\d{4})?|\d{4}|0*(\d{1,4})",,,,
+9,state_codes.json,"Certainly! Here are some regular expressions for data profiling that represent the given column:
+
+1. State abbreviations: 
+   - [A-Z]{2}
+
+2. Specific state abbreviations:
+   - CO
+   - MN
+   - WV
+   - ID
+   - IN
+   - UT
+   - MD
+   - MO
+   - ON
+   - NY
+   - NM
+   - SK
+   - PA
+   - SD
+   - MI
+   - AZ
+
+These regular expressions can help in extracting or matching patterns within the data for profiling and analysis.",[A-Z]{2},,,,
+10,phones.json,"Sure! Here is a regular expression to match the phone number format shown in the data:
+
+```regex
+^\d{3}-\d{3}-\d{4}$
+```
+
+This regular expression will match phone numbers that follow the format XXX-XXX-XXXX, where X represents a digit from 0 to 9.",^\d{3}-\d{3}-\d{4}$,,,,
+11,month_years.json,"Sure! Here are some regular expressions you can use for data profiling on the given column:
+
+1. Year: \b\d{4}\b
+2. Year with Month Abbreviation: (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+3. Year with Month Abbreviation and Year: (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|\d{4}
+
+These regular expressions will help you extract and analyze the different date formats present in the column data.",\b\d{4}\b|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|\d{4},,,,
+12,date_times.json,"Based on the data provided, here are some regular expressions that can be used for data profiling of the column:
+
+1. Date format: ""Jan 21 2013""
+Pattern: [a-zA-Z]{3} \d{2} \d{4}
+
+2. Time format (24-hour clock): ""HH:MM:SS:000AM/PM""
+Pattern: \d{1,2}:\d{2}:\d{2}:000[AP]M
+
+3. Full datetime format: ""Jan 21 2013 HH:MM:SS:000AM/PM""
+Pattern: [a-zA-Z]{3} \d{2} \d{4} \d{1,2}:\d{2}:\d{2}:000[AP]M
+
+These regular expressions can help in analyzing the structure and content of the column data efficiently.","[a-zA-Z]{3} \d{2} \d{4}|\d{1,2}:\d{2}:\d{2}:000[AP]M|[a-zA-Z]{3} \d{2} \d{4} \d{1,2}:\d{2}:\d{2}:000[AP]M",,,,
+13,user_agents.json,"Here are some regular expressions for data profiling based on the provided data:
+
+1. `Dalvik/\d\.\d\.\d \(Linux; U; Android \d\.\d\.\d; .* Build/.*\)`
+2. `Dalvik/\d\.\d\.\d \(Linux; U; Android \d\.\d\.\d; .* Build/.*\)`",Dalvik/\d\.\d\.\d \(Linux; U; Android \d\.\d\.\d; .* Build/.*\),,,,
+14,codes.json,"Certainly! Here are some regular expressions for profiling the given data in the column:
+
+1. Regex for matching UUID format:
+```
+[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}
+```
+
+2. Regex for matching UUID format (without dashes):
+```
+[A-Fa-f0-9]{32}
+```
+
+3. Regex for matching the UUIDs with lower-case characters:
+```
+[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}
+```
+
+4. Regex for matching the UUIDs without dashes and with lower-case characters:
+```
+[a-f0-9]{32}
+```
+
+5. Regex for matching UUIDs with mixed-case characters:
+```
+[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}
+```
+
+Please note that the UUIDs in the provided data don't have a consistent mix of upper or lower case characters. If you need it to be strictly one case, either upper or lower, please let me know, and I can provide a refined regex pattern based on your preference.",[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}|[A-Fa-f0-9]{32}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{32}|[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12},,,,
+15,cities.json,"Sure, here are some regular expressions that can be used for data profiling of the given column:
+
+1. Check for cities with capital letters:
+   - `([A-Z][a-z]+)`
+
+2. Match cities ending with a certain word:
+   - `\b\w+burg\b`
+
+3. Match cities with special characters:
+   - `\w+\[\d+\]`
+
+4. For multi-word cities:
+   - `(^\w+(\s\w+)?(\s\w+)?$)`
+
+5. Match cities starting with a certain letter:
+   - `(^A\w+)|(^B\w+)|(^C\w+)|(^D\w+)`
+
+These regular expressions can be customized further based on specific requirements or patterns within the data column.",([A-Z][a-z]+)|\b\w+burg\b|\w+\[\d+\]|(^\w+(\s\w+)?(\s\w+)?$)|(^A\w+)|(^B\w+)|(^C\w+)|(^D\w+),,,,
+16,keys.json,"This data seems to be representing IPv6 addresses. Regular expressions for data profiling to represent these IPv6 addresses in the column are as follows:
+
+IPv6 Address regex (expanded readability):
+^
+(?:[\da-fA-F]{1,4}:){7}[\da-fA-F]{1,4}$
+IPv6 Address regex (minimized):
+^([\da-f]{4}:){7}[\da-f]{4}$
+
+These regular expressions help identify and match IPv6 addresses in the column for data profiling purposes.","(?:[\da-fA-F]{1,4}:){7}[\da-fA-F]{1,4}|([\da-f]{4}:){7}[\da-f]{4}",,,,
+17,keys_2.json,"The regular expression to represent the data in the column is:
+
+\{[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}\} 
+
+This regular expression captures the pattern of the unique identifiers in the data provided.",\{[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}\},,,,
+18,refs.json,"1. Regular expression for PMID numbers:
+- ^PMID: \d+
+
+2. Regular expression for dois:
+- ^doi: \d{2}\.\d{4}\/[a-zA-Z0-9\(\)-]+
+
+3. Regular expression for PMC numbers:
+- ^PMC\d+
+
+4. Regular expression for ""under review"":
+- ^under review
+
+5. Regular expression for ""n.a"":
+- ^n.a",^PMID: \d+|^doi: \d{2}\.\d{4}\/[a-zA-Z0-9\(\)-]+|^PMC\d+|^under review|^n.a,,,,
+19,contracts.json,"Based on the provided data, regular expressions for data profiling of the column containing dates can be as follows:
+
+1. Date format (dd/mm/yyyy):
+   - \b(\d{2}\/\d{2}\/\d{4})\b
+
+2. Mix of dates and other entries:
+   - \b(\d{2}\/\d{2}\/\d{4}|Ongoing|Rolling contract)\b
+
+These regular expressions can help you identify and extract the dates in the specified format from the column.",\b(\d{2}\/\d{2}\/\d{4})\b|\b(\d{2}\/\d{2}\/\d{4}|Ongoing|Rolling contract)\b,,,,
+20,formats.json,"The regular expression that can represent the data in the column provided is:
+
+^%\d{1,2}\.\d{0}g$
+
+Explanation:
+- ^%: Specifies the starting character as %
+- \d{1,2}: Matches 1 or 2 digits
+- \.: Matches a literal dot
+- \d{0}: Matches 0 digits
+- g$: Specifies the ending character as ""g""","%\d{1,2}\.\d{0}g",,,,
+21,base_salaries.json,"Here are some regular expressions for data profiling that match the column you provided:
+1. Regex for Dollar Amounts:
+- \$[0-9,]+
+- \$[0-9]+
+2. Regex for Numeric Values:
+- [0-9]+
+- [0-9]+\.[0-9]+
+3. Regex for Mixed Values:
+- [0-9,]+
+4. Generic Mixed Dollar and Number Regex:
+- (\$)?[0-9,]+\.?[0-9]*","\$[0-9,]+|\$[0-9]+|[0-9]+|[0-9]+\.[0-9]+|[0-9,]+|(\$)?[0-9,]+\.?[0-9]*",,,,
+22,dates_3.json,"A regular expression to validate date in the format mentioned is: 
+
+```regex
+\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (?:January|February|March|April|May|June|July|August|September|October|November|December) (?:[0-2]?[0-9]|3[01]), (?:19|20)\d{2}\b
+```
+
+This regular expression will match the date format you provided: Day of the week followed by Month name and then the day of the month, and then the year.","\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (?:January|February|March|April|May|June|July|August|September|October|November|December) (?:[0-2]?[0-9]|3[01]), (?:19|20)\d{2}\b",,,,
+23,states.json,"Sure! Here are some regular expressions you can use for data profiling of the provided column:
+
+1. For matching states with different capitalization variations of ""California"":
+   - [Cc]alifornia
+
+2. For matching states that are only two letters long:
+   - [A-Za-z]{2}
+
+3. For matching states with abbreviations in all caps:
+   - [A-Z]{2}
+
+4. For matching states with mixed upper and lowercase letters:
+   - [A-Za-z]+
+
+5. For matching states with only two letters, regardless of case:
+   - [A-Za-z]{2} 
+
+These regular expressions can be used for data profiling tasks to identify patterns in the given column data.",[Cc]alifornia|[A-Za-z]{2}|[A-Z]{2}|[A-Za-z]+|[A-Za-z]{2}Ê,,,,
+24,dates.json,"The regular expression for profiling the date column could be: 
+
+\d{2}\.\d{2}\.\d{4} 
+
+This regex pattern matches dates in the format dd.mm.yyyy.",\d{2}\.\d{2}\.\d{4},,,,
+25,names.json,"The regular expression for profiling names should look something like this:
+
+^[A-Z][a-z]+(?:[ -][A-Z][a-z]+)*$
+
+This regular expression will match names starting with a capital letter, followed by any number of lowercase letters. It allows for spaces, hyphens, and names with multiple parts (e.g., first name and last name).",^[A-Z][a-z]+(?:[ -][A-Z][a-z]+)*$,,,,
+26,dates_2.json,"To profile the data, we can use regular expressions to identify patterns in the date format. Based on the provided data, the regular expressions that represent the column are as follows:
+
+1. Date format with two digits for the month, day, and four digits for the year: 
+   - \d{2}/\d{2}/\d{4}
+
+2. Date format for the month and day with leading zeros if applicable: 
+   - (0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])/\d{4}
+
+These regular expressions will help in identifying and profiling date patterns in the given data column.",\d{2}/\d{2}/\d{4}|(0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])/\d{4},,,,
+27,numbers.json,"The regular expression to profile the given data could be:
+
+^\d{7}$
+
+This regular expression describes a pattern where it matches exactly 7 digits in a row.",^\d{7}$,,,,
+28,months.json,"Regular expression patterns for data profiling of the given column could include:
+
+1. January
+2. February
+3. March
+4. April
+5. May
+6. June
+7. July
+8. August
+9. September
+10. October
+11. November
+12. December
+
+These regular expressions can help identify the various months present in the data for profiling purposes.",January|February|March|April|May|June|July|August|September|October|November|December,,,,
+29,dewey_nos.json,"Here are some regular expressions that you can use for data profiling of the given column:
+
+1. For numbers in the format XXX.XX/XXX or X.X/XXX:
+   - Regular Expression: \d{3}\.\d{2}\/\d{3}|\d{1}\.\d{1}\/\d{3}
+
+2. For numbers in the format XXX.XX:
+   - Regular Expression: \d{3}\.\d{2}
+
+3. For numbers in the format XXX:
+   - Regular Expression: \d{3}
+
+4. For numbers in the format XXXX/XXXX:
+   - Regular Expression: \d{4}\/\d{4}
+
+5. For numbers in the format XXXX.XXXX:
+   - Regular Expression: \d{4}\.\d{4}
+
+6. For numbers in the format XXX.XX/XXX/XXXX:
+   - Regular Expression: \d{3}\.\d{2}\/\d{3}\/\d{4}
+
+7. For numbers in the format XXX.XX/XXX:
+   - Regular Expression: \d{3}\.\d{2}\/\d{3}",\d{3}\.\d{2}\/\d{3}|\d{1}\.\d{1}\/\d{3}|\d{3}\.\d{2}|\d{3}|\d{4}\/\d{4}|\d{4}\.\d{4}|\d{3}\.\d{2}\/\d{3}\/\d{4}|\d{3}\.\d{2}\/\d{3},,,,
+30,timeframes.json,"The regular expressions for profiling the given data column would be as follows:
+
+1. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+2. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+3. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+4. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+5. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+6. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+7. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+8. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+9. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+10. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+11. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+12. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+13. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+14. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+15. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+16. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+17. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+18. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+19. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+20. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+21. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+22. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+23. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+24. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+25. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+26. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+27. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+28. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+29. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+30. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+31. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}
+32. (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}",(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) - (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4},,,,
+31,dates_2.json,"The regular expression to profile the date column could look like this:
+
+```regex
+\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{1,2}\s\d{4}\b
+```
+
+This regex will match the date pattern in the format ""MMM DD YYYY"" where:
+- `\b` asserts a word boundary to ensure whole words are matched
+- `(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)` matches the month component
+- `\s` matches a single whitespace character
+- `\d{1,2}` matches one or two digits for the day component
+- `\d{4}` matches exactly four digits for the year component
+- `\b` asserts a word boundary at the end to ensure whole words are matched
+
+You can use this regular expression to profile and extract the date information from the column.","\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{1,2}\s\d{4}\b",,,,
+32,ledger_codes.json,"The regular expression for this column can be defined as:
+[A-Z]{5}/[0-9]{4}(/[A-Z0-9]*)?",[A-Z]{5}/[0-9]{4}(/[A-Z0-9]*)?,,,,
+33,dates_4.json,"The regular expression for the given dataset representing dates in the format dd-mmm would be:
+
+```regex
+\d{2}-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)
+```",\d{2}-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec),,,,
+34,contract_terms.json,"The regular expressions for data profiling representing the given column are:
+
+- \d+ months
+- \d+ weeks
+- N/A
+- TBC
+
+These regular expressions will capture the various formats in which the duration of time is represented in the data column.",\d+ months|\d+ weeks|N/A|TBC,,,,
+35,aminos.json,"Here are a few regular expressions that can be useful for data profiling of the provided column data:
+
+1. Generic regex for detecting alphabetic characters: `[A-Za-z]+`
+2. Regex for basic email validation: `\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b`
+3. Regex to detect sequences of characters with at least one digit: `\w*\d+\w*`
+4. Regex for identifying any DNA sequence which comprises the bases A, C, G, and T: `^[ACGT]+$`
+5. Regex for general URL detection: `https?://[\w.-]+\.\w+`
+6. RegEx to match hex color codes: `^#(?:[0-9a-fA-F]{3}){1,2}$`","[A-Za-z]+|\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b|\w*\d+\w*|^[ACGT]+$|https?://[\w.-]+\.\w+|^#(?:[0-9a-fA-F]{3}){1,2}$`",,,,
+36,sn_nos.json,"The regular expression for the dates in the provided data would be: 
+
+\b(Jan|Feb|Mrz|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez) \d{2}\b
+
+Explanation:
+- \b: Asserts a word boundary
+- (Jan|Feb|Mrz|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez): Matches the months in German (abbreviated)
+- \d{2}: Matches any two digits
+- \b: Asserts a word boundary at the end
+
+This regular expression will find all the dates in the format provided in the column.",\b(Jan|Feb|Mrz|Mai|Jun|Jul|Aug|Sep|Okt|Nov|Dez) \d{2}\b,,,,
+37,codes_3.json,"The regular expression for profiling the ISBN numbers in the given data column is:
+
+\d{3}-\d-\d{3}-\d{5}-\d",\d{3}-\d-\d{3}-\d{5}-\d,,,,
+38,phones_3.json,"Certainly! For the provided phone numbers, the regular expressions for data profiling can be as follows:
+
+1. Matching UK phone numbers:
+   - `^\+\d{2} \d{3,4} \d{6}$`
+
+This regular expression captures the pattern of the UK phone numbers starting with ""+44"" followed by a space and then a group of 3 or 4 digits, another space, and finally a group of 6 digits.
+
+Feel free to let me know if you need more specific regular expressions or further assistance!","^\+\d{2} \d{3,4} \d{6}$",,,,
+39,codes_4.json,"Certainly! Here are some regular expressions for data profiling based on the provided data:
+
+1. Check for 24-character alphanumeric strings:
+```
+\b[A-Fa-f0-9]{24}\b
+```
+
+2. Check for 24-character hexadecimal strings:
+```
+\b[0-9A-F]{24}\b
+```
+
+3. Check for 24-character strings that contain both uppercase and lowercase letters, and numbers:
+```
+\b[A-Fa-f0-9]{24}\b
+```
+
+These regular expressions can help you identify and extract 24-character strings in your data that follow the patterns specified.",[A-Fa-f0-9]{24},,,,
+40,item_nos.json,"Sure! Here are some regular expressions you can use for data profiling on the given column:
+
+1. Regular Expression for all entries: `^\d{4}-[A-Z]-\d{2}$`
+2. Regular Expression for entries without the third part: `^\d{4}-[A-Z]$`
+3. Regular Expression for entries with more than one dash: `^(\d{4}-[A-Z]-\d{2})|(\d{4}-[A-Z]-\d{2}-\d{2})$`
+4. Regular Expression for entries with no dash: `^\d{4}$`
+5. Regular Expression for entries without the prefix: `^[A-Z]-\d{2}$`
+6. Regular Expression for entries with longer prefixes: `^\d{4}-(\w{1,2})-\d{2}$`
+7. Regular Expression for entries with prefixes and suffixes: `^\d{4}-[A-Z]-\d{2}-\d{2}$`
+
+You can adjust these regular expressions based on specific patterns you want to capture in your data profiling.","^(\d{4}-[A-Z]-\d{2}$|\d{4}-[A-Z]$|\d{4}-[A-Z]-\d{2}|\d{4}-[A-Z]-\d{2}-\d{2}|\d{4}$|[A-Z]-\d{2}$|\d{4}-\w{1,2}-\d{2}$|\d{4}-[A-Z]-\d{2}-\d{2})",,,,
+41,supplier_codes.json,"^\d{3,4}$
+^[A-Za-z]+$
+^\d{1,3}$
+^[A-Za-z]+\d*$
+^\d{1,4,}
+^[A-Za-z]+\d*$
+^\d{1,4}$
+^[A-Za-z]+\d*$
+^[A-Za-z]+$
+^\d{1,4}$
+^\d{1,4}$
+^[A-Za-z]+\d*$
+^\d{1,3}$
+^\d{1,3}$
+^[A-Za-z]+$
+^[A-Za-z]+$
+^\d{1,4}$
+^\d{1,3}$
+^\d{1,3}$
+^\d{1,3}$
+^[A-Za-z]+\d*$
+^\d{1,4}$
+^\d{1,4}$
+^\d{1,3}$
+^[A-Za-z]+$
+^[A-Za-z]+$
+^\d{1,4}$
+^[A-Za-z]+$
+^\d{1,4}$
+^\d{1,4}$
+^[A-Za-z]+$
+^[A-Za-z]+$
+^[A-Za-z]+\d*$
+^\d{1,3}$
+^\d{1,3}$
+^\d{1,4}$
+^\d{1,4}$
+^\d{1,3}$
+^[A-Za-z]+$
+^\d{1,3}$
+^[A-Za-z]+$
+^\d{1,4}$
+^\d{1,4}$
+^\d{1,3}$
+^[A-Za-z]+$
+^\d{1,3}$
+^\d{1,3}$
+^[A-Za-z]+\d*$
+^[A-Za-z]+$
+^\d{1,4}$
+^[A-Za-z]+$
+^\d{1,4}$
+^\d{1,4}$","^\d{3,4}$|^[A-Za-z]+$|^\d{1,3}$|^[A-Za-z]+\d*$|^\d{1,4,}",,,,
+42,skus.json,"Sure! Here are some regular expressions based on the provided data profiling column:
+
+1. Colors: 
+   - `black`
+   - `white`
+   - `grey`
+   - `bordeaux`
+   - `darkgrey`
+   - `silver`
+   - `caramel`
+   - `brown`
+   - `whitetan`
+   - `beigemix`
+   - `red`
+   - `pink`
+   - `beige`
+   - `mocca`
+   - `coldbeige`
+   - `army`
+   - `olive`
+   - `exclusive`
+   - `lightpink`
+   - `navy`
+   - `lightgrey`
+   - `lightmarble`
+   - `burgundy`
+   - `darkbrown`
+   - `rosegold`
+   - `brass`
+   - `cream`
+   - `denim`
+
+2. Color Combinations:
+   - `[a-zA-Z]+-[a-zA-Z]+` (e.g., black-white, black-grey)
+
+3. Color Codes or Predefined Names:
+   - `[0-9]{4}-[a-zA-Z]+` (e.g., 7840-black, 6606-black)
+
+4. Numeric Codes:
+   - `[0-9]+` (e.g., 1106561)
+
+5. Brands or Product Names:
+   - `[A-Z][a-z]+` (e.g., Gold-Black, BeigeNew)
+
+These regular expressions can be used to identify patterns in the data column for profiling purposes.",black|white|grey|bordeaux|darkgrey|silver|carame|brown|whitetan|beigemix|red|pink|beige|mocca|coldbeige|army|olive|exclusive|lightpink|navy|lightgrey|lightmarble|burgundy|darkbrown|rosegold|brass|cream|denim|[a-zA-Z]+-[a-zA-Z]+|[0-9]{4}-[a-zA-Z]+|[0-9]+|[A-Z][a-z]+,,,,
+43,codes_2.json,"Sure! Here are some regular expressions for data profiling based on the provided column:
+
+1. For the entire column: 
+   - ^1Z\s[0-9A-Z]{3}\s[0-9A-Z]{3}\s[0-9]{2}\s[0-9]{4}\s[0-9]{3}\s[0-9]$
+
+2. For the first part (identifier '1Z'): 
+   - ^1Z$
+
+3. For the second part (3 alphanumeric characters): 
+   - \s[0-9A-Z]{3}\s
+
+4. For the third part (3 alphanumeric characters): 
+   - [0-9A-Z]{3}\s
+
+5. For the fourth part (2 numeric characters): 
+   - [0-9]{2}\s
+
+6. For the fifth part (4 numeric characters): 
+   - [0-9]{4}\s
+
+7. For the sixth part (3 numeric characters): 
+   - [0-9]{3}\s
+
+8. For the seventh part (1 numeric character): 
+   - [0-9]$
+
+These regular expressions can help you profile and validate the data in the given column.",^1Z\s[0-9A-Z]{3}\s[0-9A-Z]{3}\s[0-9]{2}\s[0-9]{4}\s[0-9]{3}\s[0-9]$|^1Z$|\s[0-9A-Z]{3}\s|[0-9A-Z]{3}\s|[0-9]{2}\s|[0-9]{4}\s|[0-9]{3}\s|[0-9]$,,,,
+44,dates_3.json,"Sure, based on the data provided, here are some regular expressions for data profiling that represents the column:
+
+1. Month Abbreviations: 
+   - Regex: (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)
+
+2. Date Format with M/D/YY:
+   - Regex: \d{1,2}/\d{1,2}/\d{2}
+
+3. Date Format with Month Abbreviations:
+   - Regex: (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)-(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)
+
+4. Date Format with Month Abbreviations and Year:
+   - Regex: (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)-\d{1,2}-\d{2}
+
+5. Date Format with Month Abbreviations and M/D/YY:
+   - Regex: (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)-\d{1,2}/\d{1,2}/\d{2}
+
+6. Date Format with Month Abbreviations Range:
+   - Regex: (JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)-(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)
+
+These regular expressions should help you profile and extract different date formats and month abbreviations from the given data column.","(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)|\d{1,2}/\d{1,2}/\d{2}|(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)-(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)|(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)-\d{1,2}-\d{2}|(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)-\d{1,2}/\d{1,2}/\d{2}|(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)-(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)",,,,
+45,industries.json,"Regular expressions for data profiling:
+
+- Number consisting of 4 digits: `^\d{4}$`
+- Number in range 5000-5999: `^5\d{3}$`
+- Number in range 2000-2999: `^2\d{3}$`
+- Number in range 3000-3999: `^3\d{3}$`
+- Number with first two digits being 59: `^59\d{2}$`
+- Number with last two digits starting from 4 and ending at 6: `^\d{2}[4-6]$`
+- Number with any value in place of missing characters: `^50\d\d$`
+- Number with range 1000-1999 or 10--: `^(1\d{3}|10\d{2})$`
+- Number with range 60-- or 6000-6999: `^(6\d{2}|60\d{2})$`
+- Any 4-digit number with a 9 at the end: `^\d{3}9$`",^\d{4}$|^5\d{3}$|^2\d{3}$|^3\d{3}$|^59\d{2}$|^\d{2}[4-6]$|^50\d\d$|^(1\d{3}|10\d{2})$|^(6\d{2}|60\d{2})$|^\d{3}9$,,,,
+46,date_times_3.json,"The regular expression for data profiling the given data should look like:
+
+\d{2}-[A-Z]{3}-\d{2} \d{2}\.\d{2}\.\d{2}\.\d{6} [AP]M
+
+This regular expression will match the timestamps formatted as in the given data, including the date in the format: dd-MMM-yy, followed by the time in the format: hh.mm.ss.microseconds AM/PM.",\d{2}-[A-Z]{3}-\d{2} \d{2}\.\d{2}\.\d{2}\.\d{6} [AP]M,,,,
+47,titles.json,"Certainly! Here are some regular expressions for data profiling based on the provided data:
+
+1. Match ZIP Codes:
+- `\b\d{5}\b`: Matches 5-digit numbers.
+- `\b\d{5}-\d{4}\b`: Matches 5-digit numbers followed by a hyphen and 4 more digits (ZIP + 4 format).
+- `\b\d{5}(?:-\d{4})?\b`: Matches both 5-digit and ZIP + 4 format codes.
+
+2. Match all codes:
+- `\b\d{5}\b`: Matches 5-digit numbers.
+- `\b\d{5}[A-Za-z]?\b`: Matches either 5-digit numbers or 5-digit numbers followed by an alphanumeric character.
+
+These regular expressions should be useful for data profiling purposes on the given column.",\b\d{5}\b|\b\d{5}-\d{4}\b|\b\d{5}(?:-\d{4})?\b|\b\d{5}\b|\b\d{5}[A-Za-z]?\b,,,,
+48,streets.json,"The column data appears to be street addresses. Here are some regular expressions for data profiling that can be used to match street addresses:
+
+1. Regex pattern for Standard US Street Addresses:
+```
+^\d+\s[A-z]+\s[A-z]+
+```
+
+2. Regex pattern for Street Addresses with Numbers:
+```
+^\d+\s[A-z]+\s[A-z]+\s[A-z]+
+```
+
+3. Regex pattern for Unique US Street Address Format:
+```
+^\d+\s[A-z\s]+
+```
+
+These regular expressions can help in parsing and profiling street address data in the column. Adjust the expressions as needed based on the specific format of the street addresses in your data.",^\d+\s[A-z]+\s[A-z]+|^\d+\s[A-z]+\s[A-z]+\s[A-z]+|^\d+\s[A-z\s]+,,,,
+49,uids.json,"Certainly! Here are some regular expressions that might be useful for profiling the column data:
+
+1. **Regex for 8-character strings with letter and number combinations:**
+   - `^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8}$`
+
+2. **Regex for 6-10 character strings with special characters and numbers allowed:**
+   - `^[a-zA-Z\d!@#\$%&\*]{6,10}$`
+
+3. **Regex for names (assuming alphabetic characters only):**
+   - `^[a-zA-Z]+$`
+
+4. **Regex for email addresses:**
+   - `^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$`
+
+5. **Regex for phone numbers (US format):**
+   - `^\+?[1-9]\d{1,14}$`
+
+6. **Regex for date in format MM/DD/YYYY:**
+   - `^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/\d{4}$`
+
+These regular expressions can help profile and extract specific types of data from the provided sample column.","^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8}$|^[a-zA-Z\d!@#\$%&\*]{6,10}$|^[a-zA-Z]+$|^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$|^\+?[1-9]\d{1,14}$|^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/\d{4}$",,,,
+50,blood_groups.json,"Certainly! Here are some regular expressions based on the data provided:
+
+1. Match Blood Types:
+   - O\+
+   - A\+
+   - B\+
+   - AB\+
+   - O\-
+
+2. Match Positive and Negative Blood Types:
+   - [OAB]+-
+  
+3. Match All Blood Types:
+   - [OAB]+
+  
+4. Match Blood Types with Positive RH Factor:
+   - [ABO]\+
+   
+5. Match Blood Types with Negative RH Factor:
+   - [ABO]\-
+   
+6. Match Blood Types with Specific Variations:
+   - AB\+
+   - AB\-
+   - O\+
+   - O\-",O\+|A\+|B\+|AB\+|O\-|[OAB]+-|[OAB]+|[ABO]\+|[ABO]\-|AB\+|AB\-|O\+|O\-,,,,
+51,heights.json,"The regular expression for profiling the height data in the column could be:
+- \d' \d{1,2}"" 
+
+This regex pattern defines the height format as 'x' feet 'y' inches, where x and y are digits.","\d' \d{1,2}""",,,,
+52,birth_years.json,"Certainly! Here are some regular expressions based on the data for data profiling:
+
+1. 4-digit numbers: 
+   - ^\d{4}$
+
+2. 4-digit numbers with ""?"" in certain places: 
+   - ^\d{4}|\?$
+
+Please let me know if you need any specific variations or modifications.",^\d{4}$|^\d{4}|\?$,,,,
+53,date_times.json,"To create a regular expression for extracting dates and times from this data, you can use the following pattern:
+
+```regex
+\b\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\b
+```
+
+This regular expression pattern is designed to match the date and time format as provided in the data. Here's the breakdown of the pattern:
+
+- `\b` - asserts a word boundary to ensure that the match starts at the beginning of a word
+- `\d{4}` - matches exactly 4 digits (year)
+- `-` - matches a hyphen
+- `\d{2}` - matches exactly 2 digits (month and day)
+- ` ` - matches a space
+- `\d{2}` - matches exactly 2 digits (hours)
+- `:` - matches a colon
+- `\d{2}` - matches exactly 2 digits (minutes)
+- `:` - matches a colon
+- `\d{2}` - matches exactly 2 digits (seconds)
+- `\b` - asserts a word boundary to ensure that the match ends at the end of a word
+
+This regular expression will help you extract all the date and time values from the provided data.",\b\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\b,,,,
+54,primary_routes.json,"The regular expressions that represent the column are as follows:
+
+1. `^(I|OR|US)\-\d{1,3} [NSEW]` - For roads like I-84 E, OR-99E, US-26 W.
+2. `^(US)\s\d{1,2} \(.*\)` - For roads like US 26 (MT HOOD HWY), US 26 (SUNSET).
+3. `^(I-|US-|OR-)\d{3,4}$` - For roads like I-405, US-30BY, OR-213.
+4. `^(I-|US-|OR-)\d{1,3} [NSEW]` - For roads like I-5 N, US-26 E, OR-8.
+5. `^(I-|US-|OR-)\d{3,4} [NSEW]$` - For roads like I-205 S, US-26 W, OR-219.","^(I|OR|US)\-\d{1,3} [NSEW]|^(US)\s\d{1,2} \(.*\)|^(I-|US-|OR-)\d{3,4}$|^(I-|US-|OR-)\d{1,3} [NSEW]|^(I-|US-|OR-)\d{3,4} [NSEW]$",,,,
+55,ipv4.json,"Sure! Here are some regular expressions that can help profile the IP address column:
+
+1. IPv4 address pattern (generic):
+   - `\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b`
+
+2. IPv4 address pattern (specific):
+   - `^((1\d{2}|2[0-4]\d|25[0-5]|[1-9]?\d)\.){3}(1\d{2}|2[0-4]\d|25[0-5]|[1-9]?\d)$`
+
+3. IPv4 address with boundary checks for start and end:
+   - `(^|\s)\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(\s|$)`
+
+4. IPv4 address pattern with word boundary:
+   - `\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b`
+
+**Note:** Depending on the context and requirements, you may need to modify these regular expressions to suit your specific needs.","\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b|^((1\d{2}|2[0-4]\d|25[0-5]|[1-9]?\d)\.){3}(1\d{2}|2[0-4]\d|25[0-5]|[1-9]?\d)$|(^|\s)\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(\s|$)|\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b",,,,
+56,percents.json,"The regular expression for the data would be: ""\d+%"". This expression would match any percentage value in the column.",\d+%,,,,
+57,codes.json,"The regular expression for this data is:
+\d{3}-\d{2}-\d{2}-\d{2}-\d{2}-\d{4}-\d{2}
+
+This regular expression breaks down the data into the following groups:
+- \d{3}: Matches any three digits at the start of the line
+- - : Matches a hyphen
+- \d{2}: Matches any two digits
+- - : Matches a hyphen
+- \d{2}: Matches any two digits
+- - : Matches a hyphen
+- \d{2}: Matches any two digits
+- - : Matches a hyphen
+- \d{2}: Matches any two digits
+- - : Matches a hyphen
+- \d{4}: Matches any four digits
+- - : Matches a hyphen
+- \d{2}: Matches any two digits
+
+This regular expression can be used to profile the data, extracting the patterns present in the column.",\d{3}-\d{2}-\d{2}-\d{2}-\d{2}-\d{4}-\d{2},,,,
+58,urls.json,"The regular expression for extracting the airport codes from the given data is: 
+
+`\/flights\/([A-Z]{3})\/` 
+
+This regex pattern will capture the 3-letter airport codes located after the `/flights/` part of the URLs.",\/flights\/([A-Z]{3})\/,,,,
+59,date_times_2.json,"Here is a regular expression that can match dates in the given format (YYYY-MM-DDT00:00:00):
+
+```regex
+\d{4}-\d{2}-\d{2}T00:00:00
+```",\d{4}-\d{2}-\d{2}T00:00:00,,,,
+60,canada_postal_codes.json,"To extract the postal codes from the given data column, the following regular expression can be used:
+
+\b[A-Z]\d[A-Z]\d[A-Z]\d\b
+
+Explanation:
+- \b: asserts that we are at the start of a word boundary
+- [A-Z]: matches any uppercase letter
+- \d: matches any digit
+- [A-Z]: matches any uppercase letter
+- \d: matches any digit
+- [A-Z]: matches any uppercase letter
+- \d: matches any digit
+- \b: asserts that we are at the end of a word boundary
+
+This regular expression ensures that only valid Canadian postal codes (letter-number-letter-number-letter-number) are extracted from the given column.",[A-Z]\d[A-Z]\d[A-Z]\d,,,,
+61,dates.json,"The data provided consists of dates and is already formatted in the standard YYYY-MM-DD format. Regular expressions are used to find patterns within text data. Below is a sample regular expression pattern to match the dates within the provided data:
+
+1. Regular Expression for Dates: `\b\d{4}-\d{2}-\d{2}\b`
+
+This regular expression matches all the date formats in the provided data.
+
+Here's how the regular expression breaks down:
+- `\b` asserts a word boundary at the beginning and end of the sequence to only match complete dates.
+- `\d{4}` matches exactly four digits (year).
+- `-` matches the hyphen between date components.
+- `\d{2}` matches exactly two digits (month and day).
+- `-` is used to match the hyphen in the date format again.",\b\d{4}-\d{2}-\d{2}\b,,,,
+62,phone_nos_2.json,Regular Expression: \(\d{3}\) \d{3}-\d{4},\(\d{3}\) \d{3}-\d{4},,,,
