@@ -84,19 +84,21 @@ pattern_pool = selector.pattern_pool
 ```
 
 ### ChatGPT Comparison
-To validate the effectiveness of RIOLU, we also prompted ChatGPT to generate regexes and flag anomalies as a comparison. The prompt template is:
+To validate the effectiveness of RIOLU, we also prompted ChatGPT to generate regexes and flag anomalies as a comparison. 
 
+#### Prompt template for pattern-based data profiling:
+```
+Hi ChatGPT, given the following data (in a column), please provide me with regular expressions for data profiling that represent the column:
+*** Your Column Goes Here ***
+```
+The responses and regexes for pattern-based data profiling can be found in the ```test_data_profiling``` folder.
+
+#### Prompt template for pattern violation detection:
 ```
 Hi ChatGPT, given the following data (in a column), please accomplish the following two tasks:
 1. Provide me with regular expressions that represent the column.
 2. Provide me with anomalous cases in the column.
 *** Your Column Goes Here ***
 ```
+The regexes for pattern violation detection can be found in the ```test_anomaly_detection``` folder.
 
-Here are three example conversations generated using this prompt. 
-
-State: https://chatgpt.com/share/abaae9cc-f29a-4410-bd7a-5184581ecb48
-
-Zip code: https://chatgpt.com/share/9ccca100-4524-432a-b75c-ce7ad38e2824
-
-Phone number: https://chatgpt.com/share/67c63504-ae41-4248-b7bd-edbda63c7d73
