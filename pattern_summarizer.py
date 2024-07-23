@@ -8,7 +8,7 @@ class PatternGenerator:
 
     def __init__(self, data, coverage_threshold):
         self.coverage_threshold = coverage_threshold
-        self.sampling_size = int(0.2*len(data))
+        self.sampling_size = int(0.05*len(data))
         # Create splits, only consider not nan values
         self.splits, self.indices_train = Utils.split_and_validate(data, self.sampling_size)
         self.test = self.splits[1]
@@ -88,7 +88,7 @@ class PatternGenerator:
                     # Reshape the coverages into a 2D array
                     X = np.array(coverages).reshape(-1, 1)
                     # Insert noises
-                    kmeans = KMeans(n_clusters=2, random_state=0)
+                    kmeans = KMeans(n_clusters=2, random_state=0, n_init='auto')
                     kmeans.fit(X)
 
                     # Get the cluster assignments
@@ -144,7 +144,7 @@ class PatternGenerator:
                     coverages.append(1/len(column))
                     # Reshape the coverages into a 2D array
                     X = np.array(coverages).reshape(-1, 1)
-                    kmeans = KMeans(n_clusters=2, random_state=0)
+                    kmeans = KMeans(n_clusters=2, random_state=0, n_init='auto')
                     kmeans.fit(X)
 
                     # Get the cluster assignments
@@ -153,7 +153,7 @@ class PatternGenerator:
                     label_select = np.argmax(kmeans.cluster_centers_)
                     chars_selected = [chars[i] for i in range(len(chars)) if cluster_labels[i]==label_select]
                     chars_coverage = sum([coverages[i] for i in range(len(chars)) if cluster_labels[i]==label_select])
-                    if chars_coverage >= self.coverage_threshold:
+                    if chars_coverage >= self.coverage_threshold and int(pos[4:]) < minimum_constraint:
                         # Dump the last?
                         if last_type != '':
                             token_char += '%s{%d}'%(last_type, type_count)
