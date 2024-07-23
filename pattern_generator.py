@@ -6,13 +6,15 @@ from sklearn.cluster import KMeans
 
 class PatternGenerator:
 
-    def __init__(self, data, coverage_threshold):
+    def __init__(self, data, coverage_threshold, sampling_size=None, constrained_temp=True):
         # Training configurations
         self.coverage_threshold = coverage_threshold
-        self.sampling_size = int(np.ceil((1.96**2 * 0.5 * (1-0.5)) / (0.05**2)))
+        if sampling_size == None:
+            self.sampling_size = int(np.ceil((1.96**2 * 0.5 * (1-0.5)) / (0.05**2)))
+        else:
+            self.sampling_size = sampling_size
         # Create splits, only consider not nan values
         self.splits, self.indices_train = Utils.split_and_validate(data, self.sampling_size)
-
         # Get a list of digits and letters
         self.digits = set(str(i) for i in range(10))
         self.upper_letters = set(string.ascii_uppercase)
@@ -28,10 +30,16 @@ class PatternGenerator:
         self.patterns = []
         self.pattern_coverage = {}
         
+        # Whether to optimize r_em
+        self.constrained_temp = constrained_temp
+        
     def information_gathering(self, symbols, column, coverage):
         # Create a new info slot
         self.template_information = {}
-        max_length = Utils.symbol_length(symbols, column, coverage)
+        if self.constrained_temp:
+            max_length = Utils.symbol_length(symbols, column, coverage)
+        else:
+            max_length = Utils.symbol_length(symbols, column, 1)
         for i in range(len(column)):
             (template, token_length_bag, token_char_bag, token_bag) = Utils.token_info(symbols, column[i], max_length)
             # Fit the template
@@ -88,7 +96,7 @@ class PatternGenerator:
                     # Reshape the coverages into a 2D array
                     X = np.array(coverages).reshape(-1, 1)
                     # Insert noises
-                    kmeans = KMeans(n_clusters=2, random_state=0)
+                    kmeans = KMeans(n_clusters=2, n_init='auto', random_state=0)
                     kmeans.fit(X)
 
                     # Get the cluster assignments
@@ -144,7 +152,7 @@ class PatternGenerator:
                     coverages.append(1/len(column))
                     # Reshape the coverages into a 2D array
                     X = np.array(coverages).reshape(-1, 1)
-                    kmeans = KMeans(n_clusters=2, random_state=0)
+                    kmeans = KMeans(n_clusters=2, n_init='auto', random_state=0)
                     kmeans.fit(X)
 
                     # Get the cluster assignments
@@ -153,7 +161,7 @@ class PatternGenerator:
                     label_select = np.argmax(kmeans.cluster_centers_)
                     chars_selected = [chars[i] for i in range(len(chars)) if cluster_labels[i]==label_select]
                     chars_coverage = sum([coverages[i] for i in range(len(chars)) if cluster_labels[i]==label_select])
-                    if chars_coverage >= self.coverage_threshold:
+                    if chars_coverage >= self.coverage_threshold and int(pos[4:]) < minimum_constraint:
                         # Dump the last?
                         if last_type != '':
                             token_char += '%s{%d}'%(last_type, type_count)
