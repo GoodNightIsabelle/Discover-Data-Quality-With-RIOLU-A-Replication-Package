@@ -39,7 +39,7 @@ def coverage(pattern_pool, data):
 datasets = ['flights', 'hosp_1k', 'hosp_10k', 'hosp_100k', 'movies']
 precisions, recalls, f1_scores = [], [], []
 # Do it 5 times
-for _ in range(1):
+for _ in range(5):
     # For single run
     single_p, single_r, single_f1 = [], [], []
     for dataset in datasets:
