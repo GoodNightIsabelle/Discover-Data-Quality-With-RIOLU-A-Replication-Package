@@ -11,7 +11,7 @@ We introduce the details of the variations we created for our ablation study. Re
 ## Our Findings
 We gathered the p/r/f1 score of each variation in the following table. To ensure stability, the results were averaged across 5 independent runs, aligning with the settings in Sec IV-B. 
 
-![ablation_study](./images/ablation_study.png)
+![ablation_study](../images/ablation_study.png)
 
 - __20% Column Sampling__. This variant might lead to under-generalization when the error rate is not extremely high, or the data size is small (e.g., containing ~1k records). However, we noticed that sampling more data points can slightly increase the accuracy of r\_{cov} estimation and boost the performance when the error rate is high (e.g., the *Flights* dataset). 
 - __Static r\_{cov}=0.95__. This variant has faith in your dataset. By setting r\_{cov} to 0.95, the generated patterns learn from and can cover a wide majority of the records (~95%). Therefore, the filtered records have high confidence to be anomalies. The overly optimistic learning assumption is not generalizable when the actual error rate increases. 
