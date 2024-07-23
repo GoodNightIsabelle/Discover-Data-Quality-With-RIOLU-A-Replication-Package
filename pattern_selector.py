@@ -24,7 +24,7 @@ class PatternSelector:
             coverages.append(1/self.column_size)
             # Reshape the coverages into a 2D array
             X = np.array(coverages).reshape(-1, 1)
-            kmeans = KMeans(n_clusters=2, random_state=0)
+            kmeans = KMeans(n_clusters=2, n_init='auto', random_state=0)
             kmeans.fit(X)
 
             # Get the cluster assignments
