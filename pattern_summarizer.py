@@ -8,7 +8,7 @@ class PatternGenerator:
 
     def __init__(self, data, coverage_threshold):
         self.coverage_threshold = coverage_threshold
-        self.sampling_size = int(0.05*len(data))
+        self.sampling_size = int(0.2*len(data))
         # Create splits, only consider not nan values
         self.splits, self.indices_train = Utils.split_and_validate(data, self.sampling_size)
         self.test = self.splits[1]
@@ -88,7 +88,7 @@ class PatternGenerator:
                     # Reshape the coverages into a 2D array
                     X = np.array(coverages).reshape(-1, 1)
                     # Insert noises
-                    kmeans = KMeans(n_clusters=2, random_state=0, n_init='auto')
+                    kmeans = KMeans(n_clusters=2, random_state=0)
                     kmeans.fit(X)
 
                     # Get the cluster assignments
@@ -144,7 +144,7 @@ class PatternGenerator:
                     coverages.append(1/len(column))
                     # Reshape the coverages into a 2D array
                     X = np.array(coverages).reshape(-1, 1)
-                    kmeans = KMeans(n_clusters=2, random_state=0, n_init='auto')
+                    kmeans = KMeans(n_clusters=2, random_state=0)
                     kmeans.fit(X)
 
                     # Get the cluster assignments
@@ -250,8 +250,8 @@ class PatternGenerator:
             # Regular expression with positional constraints
             pattern = re.compile(template)
             # Test the coverage on the training set and the testing set
-            cov_train = len(Utils.find_exact_match_elements(pattern, train_data))
-            cov_test = len(Utils.find_exact_match_elements(pattern, test_data))
-            cov_whole = (cov_train+cov_test)/(len(train_data)+len(test_data))
+            cov_whole = len(Utils.find_exact_match_elements(template, train_data+test_data))
             
-            self.pattern_coverage[template] = cov_whole
+            self.pattern_coverage[template] = cov_whole/(len(train_data)+len(test_data))
+        # Get the pattern coverage details
+        print(self.pattern_coverage)
