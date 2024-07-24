@@ -57,7 +57,7 @@ These regular expressions will help you identify and validate the years and year
 2. To match percentage values without a decimal point, you can use the regex pattern:
    -?\d+%
 
-These regular expressions will help you profile and extract the percentage values from the column data.",\d+\.\d+%|\d+%,re.error: nothing to repeat at position 0,?\\d+\\.\\d+%|?\\d+%
+These regular expressions will help you profile and extract the percentage values from the column data.",-?\d+\.\d+%|-?\d+%,,
 6,salaries.json,"Certainly! Here are some regular expressions that could be used for data profiling on the provided column:
 
 1. To match all dollar amounts:
@@ -285,7 +285,7 @@ This regular expression will match the date format you provided: Day of the week
 5. For matching states with only two letters, regardless of case:
    - [A-Za-z]{2} 
 
-These regular expressions can be used for data profiling tasks to identify patterns in the given column data.",[Cc]alifornia|[A-Za-z]{2}|[A-Z]{2}|[A-Za-z]+|[A-Za-z]{2}Ê,,
+These regular expressions can be used for data profiling tasks to identify patterns in the given column data.",[Cc]alifornia|[A-Za-z]{2}|[A-Z]{2}|[A-Za-z]+|[A-Za-z]{2}ï¿½,,
 24,dates.json,"The regular expression for profiling the date column could be: 
 
 \d{2}\.\d{2}\.\d{4} 
