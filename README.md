@@ -12,11 +12,11 @@ The workflows of our tool (Auto-RIOLU and Guided-RIOLU) are shown in the followi
 
 **Column Sampling:** Sample a subset of data from the column to generate the patterns. 
 
-**Coverage Rate (rcov) Estimation:** Estimate the percentage of healthy values (rcov) in each column using either the supervised or unsupervised method.
+**Coverage Rate ($r_{cov}$) Estimation:** Estimate the percentage of healthy values ($r_{cov}$) in each column using either the supervised or unsupervised method.
 
-**Constrained Template Generation:** Constrained Template Generation: Generate raw templates for each record with an exact matching rate rEM (rEM=rcov in our study) as a granularity constraint.
+**Constrained Template Generation:** Constrained Template Generation: Generate raw templates for each record with an exact matching rate $r_{EM}$ ($r_{EM}$=$r_{cov}$ in our study) as a granularity constraint.
 
-**Pattern Generation:** Generate pattern constraints for each template according to the coverage rate (rcov).
+**Pattern Generation:** Generate pattern constraints for each template according to the coverage rate ($r_{cov}$).
 
 **Pattern Selection:** Select patterns based on some heuristics (e.g., their generalizability). 
 
@@ -59,7 +59,7 @@ Run code ```Auto-RIOLU.py``` to get the result of the unsupervised version of RI
 #### Supervised Version (Guided-RIOLU)
 ![image](./images/supervised_coverage_rate_estimation.jpg?raw=true)
 
-Run code ```Guided-RIOLU.py```to get the result of the supervised version of RIOLU; the predicted CSV file will be stored. We use the cleaned version of each dataset as a support to estimate the coverage rate (rcov). 
+Run code ```Guided-RIOLU.py```to get the result of the supervised version of RIOLU; the predicted CSV file will be stored. We use the cleaned version of each dataset as a support to estimate the coverage rate ($r_{cov}$). 
 
 ## Plug and Play: RIOLU for others
 ### Pattern Generator
