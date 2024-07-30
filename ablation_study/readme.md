@@ -9,7 +9,7 @@ We introduce the details of the variations we created for our ablation study. Re
 - __No Pattern Selection__. In this variant, we remove the ```pattern selection```  process and accept all the generated patterns. 
 
 ## Our Findings
-We gathered the p/r/f1 score of each variation in the following table. To ensure stability, the results were averaged across 5 independent runs, aligning with the settings in Sec IV-B. 
+We gathered the precision(P)/recall(R)/f1 score(F1) of each variation in the following table. To ensure stability, the results were averaged across 5 independent runs, aligning with the settings in Sec IV-B. 
 
 ![ablation_study](../images/ablation_study.png)
 
