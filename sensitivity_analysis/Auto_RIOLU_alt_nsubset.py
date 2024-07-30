@@ -168,7 +168,7 @@ print(avg_f1scores)
 plt.plot(range(1, subsets), avg_f1scores, ls='-.', marker='o', label='average f1 score')
 for i, txt in enumerate(avg_f1scores):
     plt.annotate(txt, (i+1, avg_f1scores[i]), textcoords="offset points", xytext=(0,8), ha='center')
-
+plt.ylim(0, 1.1)
 plt.set_xlabel('Number of Subsets')
 plt.set_ylabel('F1 Scores')
 
