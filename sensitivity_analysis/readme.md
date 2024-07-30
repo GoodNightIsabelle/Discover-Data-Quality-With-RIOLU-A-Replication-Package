@@ -1,5 +1,5 @@
 # Understand the Default Parameters!
-As we have analyzed in the ablation study (and also in our comparison between Auto-RIOLU and Guided-RIOLU), **an accurate estimation of $r_{cov}$** is essential for the inference quality of RIOLU. Auto-RIOLU relies on **$r_{cov\_init}$** and **$N_{subset}$** for the estimation. To validate the effectiveness of our default parameter choice, we carried out a sensitivity analysis to ensure the parameters are generalizable to different datasets. 
+As we have analyzed in the ablation study (and also in our comparison between Auto-RIOLU and Guided-RIOLU), **an accurate estimation of $r_{cov}$** is essential for the inference quality of RIOLU. Auto-RIOLU relies on **$r_{cov\\_init}$** and **$N_{subset}$** for the estimation. To validate the effectiveness of our default parameter choice, we carried out a sensitivity analysis to ensure the parameters are generalizable to different datasets. 
 
 # Variation Ranges
 - **$r_{cov\_init}$**: 0.85, 0.9, 0.95, 0.99
