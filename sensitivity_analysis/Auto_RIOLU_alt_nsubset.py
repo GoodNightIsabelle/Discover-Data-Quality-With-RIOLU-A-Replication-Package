@@ -41,7 +41,7 @@ precisions, recalls, f1_scores = [], [], []
 for _ in range(10):
     # For single run
     single_p, single_r, single_f1 = [], [], []
-    cycles = 11
+    subsets = 11
     for dataset in datasets:
         p_list, r_list, f1_list = [], [], []
         print(dataset)
@@ -54,7 +54,7 @@ for _ in range(10):
         # Create the splits
         results = {}
         
-        for rounds in range(1, cycles):
+        for rounds in range(1, subsets):
             coverage_threshold = 0.95
             print(rounds)
             # Time calculation
@@ -153,7 +153,7 @@ print('f1: ', f1_scores)
 plt.figure()
 # Plotting y1 on the left y-axis
 for i, f1_score in enumerate(f1_scores):
-    plt.plot(range(1, cycles), f1_score, label='%s f1 score'%datasets[i])
+    plt.plot(range(1, subsets), f1_score, label='%s f1 score'%datasets[i])
 # Average f1 score
 avg_precisions = np.array(precisions).mean(axis=0)
 avg_recalls = np.array(recalls).mean(axis=0)
@@ -165,12 +165,12 @@ for p, r in zip(avg_precisions, avg_recalls):
         f1 = '-'
     avg_f1scores.append(f1)
 print(avg_f1scores)
-plt.plot(range(1, cycles), avg_f1scores, ls='-.', marker='o', label='average f1 score')
+plt.plot(range(1, subsets), avg_f1scores, ls='-.', marker='o', label='average f1 score')
 for i, txt in enumerate(avg_f1scores):
     plt.annotate(txt, (i+1, avg_f1scores[i]), textcoords="offset points", xytext=(0,8), ha='center')
 
-plt.set_xlabel('Number of Cycles')
+plt.set_xlabel('Number of Subsets')
 plt.set_ylabel('F1 Scores')
 
-plt.savefig('alter_ncycle.pdf')
+plt.savefig('alter_nsubset.pdf')
 plt.show()
