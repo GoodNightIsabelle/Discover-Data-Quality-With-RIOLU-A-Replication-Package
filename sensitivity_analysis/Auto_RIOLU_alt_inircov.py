@@ -168,8 +168,9 @@ plt.figure()
 for i, f1_score in enumerate(f1_scores):
     plt.plot(coverage_thresholds, f1_score, label=datasets[i])
 plt.plot(coverage_thresholds, avg_f1scores, ls='-.', marker='o', label='average f1 score')
-plt.xlabel('Initial Coverage Rate')
-plt.ylabel('Average F1 Score')
+plt.xlabel('Initial r_cov')
+plt.ylabel('F1 Score')
+plt.ylim(0, 1.1)
 for i, txt in enumerate(avg_f1scores):
     plt.annotate(txt, (coverage_thresholds[i], avg_f1scores[i]), textcoords="offset points", xytext=(0,8), ha='center')
 
