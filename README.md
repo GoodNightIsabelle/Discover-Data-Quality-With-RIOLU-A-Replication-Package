@@ -84,7 +84,7 @@ pattern_pool = selector.pattern_pool
 ```
 
 ### ChatGPT Comparison
-To validate the effectiveness of RIOLU, we also prompted ChatGPT to generate regexes and flag anomalies as a comparison. 
+To validate the effectiveness of RIOLU, we also prompted ChatGPT to generate regexes and flag anomalies as a comparison. We used GPT-3.5 Turbo API with all the default settings. The experiments with ChatGPT were done in one trial because extracting regexes from each response requires manual work and careful validation, which, in other words, sadly, requires loads of time. 
 
 #### Prompt template for pattern-based data profiling:
 ```
