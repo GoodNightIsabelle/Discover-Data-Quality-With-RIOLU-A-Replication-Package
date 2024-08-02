@@ -8,7 +8,7 @@ As we have analyzed in the ablation study (and also in our comparison between Au
 # Our Findings
 
 ![sensitivity_analysis](../images/sensitivity_analysis.png?raw=true)
-- **$r_{cov\\_init}$**: The optimal choice of $r\_{cov\_init}$ varies across datasets, given that their error rates are drastically different. Although we can optimize the average performance on the datasets by 4% by decreasing the $r_{cov_init}$ value, we stuck to the setting of 0.95 based on the intuition by Song and He, that the non-conforming values tend to be minor in production. 
+- **$r_{cov\\_init}$**: The optimal choice of **$r_{cov\\_init}$** varies across datasets, given that their error rates are drastically different. Although we can optimize the average performance on the datasets by 4% by decreasing the **$r_{cov\\_init}$** value, we stuck to the setting of 0.95 based on the intuition by Song and He, that the non-conforming values tend to be minor in production. 
 
 - **$N_{subset}$**: We observed a peak of average f1 score when setting Nsubset to 5: a smaller number may cause the samples to be less representative, whereas a larger number would decrease the efficiency and may cause too many overlaps among the samples. 
 
