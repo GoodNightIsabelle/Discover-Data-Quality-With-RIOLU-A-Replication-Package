@@ -2,6 +2,7 @@
 
 ### The repository contains the replication package for the paper "Automated, Unsupervised, and Auto-parameterized Inference of Data Patterns and Anomaly Detection".
 ### RIOLU: Regex Inferencer autO-parameterized Learning with Uncleaned data
+<img src="./images/316591300-f91de69f-25a8-4ace-8e0b-eb225434272d.png" alt="riolu" width="100" height="100">
 ![riolu](./images/316591300-f91de69f-25a8-4ace-8e0b-eb225434272d.png){width=100px, height=100px}
 
 
