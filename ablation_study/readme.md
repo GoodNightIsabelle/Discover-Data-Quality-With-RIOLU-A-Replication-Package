@@ -2,11 +2,11 @@
 
 ## Variation Introduction
 We introduce the details of the variations we created for our ablation study. Recall that Auto-RIOLU for pattern anomaly detection contains five components: ```column sampling```, ```$r\_{cov}$ estimation```, ```constrained template generation```, ```pattern generation```, and ```pattern selection```. The ```pattern generation``` process follows a set of rules suggested by Raman *et al.* and Ilyas *et al.* and is the core component of RIOLU. Hence, it is not modifiable nor removable in the ablation study. We provide descriptions for other component variations as follows:
-- __20% Column Sampling__. In this variant, we follow the experiment setting in FlashProfile and sample 20% of the records in the ```column sampling``` process for pattern generation.
-- __Static $r\_{cov}$=0.95__. In this variant, we remove the ```$r\_{cov}$ estimation``` component and use the default $r\_{cov}$=0.95 for pattern inference.
-- __Static $r\_{EM}$=1__. In this variant, we set $r\_{EM}$=1 in the ```constrained template generation``` process to exactly match every record into their corresponding templates.
-- __Static Pattern Selection Threshold__. In this variant, we use a static selection threshold instead of K-Means clustering in the ```pattern selection``` process: patterns with a frequency larger than 0.01 are selected. 
-- __No Pattern Selection__. In this variant, we remove the ```pattern selection```  process and accept all the generated patterns. 
+- __20% Column Sampling__. In this variant, we follow the experiment setting in FlashProfile and sample 20% of the records in the ```column sampling``` process for pattern generation. (Run ```20_subsampling.py``` to replicate the experiment.)
+- __Static $r\_{cov}$=0.95__. In this variant, we remove the ```$r\_{cov}$ estimation``` component and use the default $r\_{cov}$=0.95 for pattern inference. (Run ```static_rcov_95.py``` to replicate the experiment.)
+- __Static $r\_{EM}$=1__. In this variant, we set $r\_{EM}$=1 in the ```constrained template generation``` process to exactly match every record into their corresponding templates. (Run ```static_rEM_1.py``` to replicate the experiment.)
+- __Static Pattern Selection Threshold__. In this variant, we use a static selection threshold instead of K-Means clustering in the ```pattern selection``` process: patterns with a frequency larger than 0.01 are selected. (Run ```static_selection_threshold.py``` to replicate the experiment.)
+- __No Pattern Selection__. In this variant, we remove the ```pattern selection```  process and accept all the generated patterns. (Run ```no_selection.py``` to replicate the experiment.)
 
 ## Our Findings
 We gathered the precision(P)/recall(R)/f1 score(F1) of each variation in the following table. To ensure stability, the results were averaged across 5 independent runs, aligning with the settings in Sec IV-B. 
