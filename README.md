@@ -14,7 +14,7 @@ The workflows of our tool (Auto-RIOLU and Guided-RIOLU) are shown in the followi
 
 **Coverage Rate ($r\_{cov}$) Estimation:** Estimate the percentage of healthy values ($r_{cov}$) in each column using either the supervised or unsupervised method.
 
-**Constrained Template Generation:** Constrained Template Generation: Generate raw templates for each record with an exact matching rate $r_{EM}$ ($r_{EM}$=$r_{cov}$ in our study) as a granularity constraint.
+**Constrained Template Generation:** Constrained Template Generation: Generate raw templates for each record with an exact matching rate $r_{EM}$ ($r_{EM}=r_{cov}$ in our study) as a granularity constraint.
 
 **Pattern Generation:** Generate pattern constraints for each template according to the coverage rate ($r_{cov}$).
 
