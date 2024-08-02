@@ -2,14 +2,14 @@
 
 ### The repository contains the replication package for the paper "Automated, Unsupervised, and Auto-parameterized Inference of Data Patterns and Anomaly Detection".
 ### RIOLU: Regex Inferencer autO-parameterized Learning with Uncleaned data
-![riolu](./images/316591300-f91de69f-25a8-4ace-8e0b-eb225434272d.png)
+![riolu](./images/316591300-f91de69f-25a8-4ace-8e0b-eb225434272d.png){width=100px, height=100px}
+
 
 
 ## Introduction
 The workflows of our tool (Auto-RIOLU and Guided-RIOLU) are shown in the following graph:
 
-![image](./images/methodology_overview.jpg?raw=true){width=100px, height=100px}
-
+![image](./images/methodology_overview.jpg?raw=true)
 **Column Sampling:** Sample a subset of data from the column to generate the patterns. 
 
 **Coverage Rate ($r\_{cov}$) Estimation:** Estimate the percentage of healthy values ($r\_{cov}$) in each column using either the supervised or unsupervised method.
