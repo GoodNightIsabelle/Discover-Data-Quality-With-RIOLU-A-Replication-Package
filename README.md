@@ -8,7 +8,7 @@
 ## Introduction
 The workflows of our tool (Auto-RIOLU and Guided-RIOLU) are shown in the following graph:
 
-![image](./images/methodology_overview.jpg?raw=true)
+![image](./images/methodology_overview.jpg?raw=true){ width=200px, height=300px}
 
 **Column Sampling:** Sample a subset of data from the column to generate the patterns. 
 
