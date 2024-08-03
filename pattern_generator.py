@@ -161,7 +161,7 @@ class PatternGenerator:
                     label_select = np.argmax(kmeans.cluster_centers_)
                     chars_selected = [chars[i] for i in range(len(chars)) if cluster_labels[i]==label_select]
                     chars_coverage = sum([coverages[i] for i in range(len(chars)) if cluster_labels[i]==label_select])
-                    if chars_coverage >= self.coverage_threshold and int(pos[4:]) <= minimum_constraint:
+                    if chars_coverage >= self.coverage_threshold and int(pos[4:]) < minimum_constraint:
                         # Dump the last?
                         if last_type != '':
                             token_char += '%s{%d}'%(last_type, type_count)
