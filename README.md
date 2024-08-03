@@ -21,7 +21,7 @@ The workflows of our tool (Auto-RIOLU and Guided-RIOLU) are shown in the followi
 **Pattern Selection:** Select patterns based on some heuristics (e.g., their generalizability). 
 
 ## Folder Structure
-.
+```
 ├── ablation_study   
 
     ├── 20_subsampling.py
@@ -66,7 +66,7 @@ The workflows of our tool (Auto-RIOLU and Guided-RIOLU) are shown in the followi
 ├── utils.py
 ├── LICENSE
 └── readme.md
-
+```
 ## Dependencies
 
 - Python >= 3.8
