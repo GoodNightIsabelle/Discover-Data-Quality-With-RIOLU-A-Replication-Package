@@ -20,6 +20,49 @@ The workflows of our tool (Auto-RIOLU and Guided-RIOLU) are shown in the followi
 
 **Pattern Selection:** Select patterns based on some heuristics (e.g., their generalizability). 
 
+## Folder Structure
+.
+├── ablation_study   
+    ├── 20_subsampling.py
+    ├── no_selection.py
+    ├── static_rEM_1.py
+    ├── static_rcov_95.py
+    ├── static_selection_threshold.py
+    └── readme.md
+├── ground_truth_anomaly_detection (Data ground truths)
+├── images                     
+├── java_repo_exploration   
+    ├── java_names
+    ├── java_naming_anomalies
+    └── readme.md
+├── sensitivity_analysis
+    ├── Auto_RIOLU_alt_inircov.py
+    ├── Auto_RIOLU_alt_nsubset.py
+    └── readme.md
+├── test_anomaly_detection
+    ├── chatgpt_sampled (Data sampled for ChatGPT & the extracted regexes)
+    ├── flights
+    ├── hosp_1k
+    ├── hosp_10k
+    ├── hosp_100k
+    ├── movies
+    └── readme.md
+├── test_data_profiling
+    ├── hetero
+    ├── homo.simple
+    ├── homo
+    ├── GPT_responses.csv (ChatGPT profiling responses & the extracted regexes)
+    └── readme.md
+├── Auto-RIOLU.py (Auto-RIOLU for anomaly detection)
+├── Guided-RIOLU.py (Guided-RIOLU for anomaly detection)
+├── pattern_generator.py
+├── pattern_selector.py
+├── pattern_summarizer.py
+├── test_profiling.py (RIOLU for data profiling)
+├── utils.py
+├── LICENSE
+└── readme.md
+
 ## Dependencies
 
 - Python >= 3.8
