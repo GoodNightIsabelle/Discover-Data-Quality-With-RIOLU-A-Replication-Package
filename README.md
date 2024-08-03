@@ -145,8 +145,3 @@ The regexes for pattern violation detection can be found in the ```test_anomaly_
 ├── LICENSE
 └── readme.md
 ```
-2. Provide me with anomalous cases in the column.
-*** Your Column Goes Here ***
-```
-The regexes for pattern violation detection can be found in the ```test_anomaly_detection``` folder.
-
