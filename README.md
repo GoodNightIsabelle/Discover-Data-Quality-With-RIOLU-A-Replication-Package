@@ -97,6 +97,10 @@ The responses and regexes for pattern-based data profiling can be found in the `
 ```
 Hi ChatGPT, given the following data (in a column), please accomplish the following two tasks:
 1. Provide me with regular expressions that represent the column.
+2. Provide me with anomalous cases in the column.
+*** Your Column Goes Here ***
+```
+The regexes for pattern violation detection can be found in the ```test_anomaly_detection``` folder.
 
 ## Folder Structure
 ```
