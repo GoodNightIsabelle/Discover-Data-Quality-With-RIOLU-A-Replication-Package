@@ -10,6 +10,7 @@
 The workflows of our tool (Auto-RIOLU and Guided-RIOLU) are shown in the following graph:
 
 ![image](./images/methodology_overview.jpg?raw=true)
+
 **Column Sampling:** Sample a subset of data from the column to generate the patterns. 
 
 **Coverage Rate ($r\_{cov}$) Estimation:** Estimate the percentage of healthy values ($r_{cov}$) in each column using either the supervised or unsupervised method.
@@ -46,17 +47,20 @@ The procedure for replicating our experiments is as follows:
 Run code ```test_profiling.py``` to get the data profiling result provided by RIOLU's pattern generation module. The patterns for each file, overall precisions, and overall recalls will be printed in the output, and a graphic result will be automatically stored in the folder. 
 
 An example of the printed graph: 
+
 ![profiling_quality](./images/profiling_quality.png?raw=true)
 
 ### Anomaly Detection
 The two anomaly detection tools read the dataset in the ```test_anomaly_detection``` folder. Change the variable of ```dataset``` in the code to specify the desired dataset (valid data in our folder: hosp_1k, hosp_10k, hosp_100k, movies), the code will automatically read the ground truth to fetch the columns to be tested (not all the columns contain pattern anomalies). 
 
 #### Unsupervised Version (Auto-RIOLU)
+
 ![image](./images/unsupervised_coverage_rate_estimation.jpg?raw=true)
 
 Run code ```Auto-RIOLU.py``` to get the result of the unsupervised version of RIOLU; the predicted CSV file will be stored. 
 
 #### Supervised Version (Guided-RIOLU)
+
 ![image](./images/supervised_coverage_rate_estimation.jpg?raw=true)
 
 Run code ```Guided-RIOLU.py```to get the result of the supervised version of RIOLU; the predicted CSV file will be stored. We use the cleaned version of each dataset as a support to estimate the coverage rate ($r_{cov}$). 
@@ -72,6 +76,7 @@ pattern_statistics = generator.pattern_coverage
 ```
 
 Workflow example with DateTime column:
+
 ![image](./images/generation_example.jpg?raw=true)
 
 ### Pattern Selector
